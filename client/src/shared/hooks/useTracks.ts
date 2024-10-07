@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import type { Track, TracksResponse } from "./schema";
 import { fetchHttp } from "../utils/http";
 
 /**
@@ -9,13 +10,19 @@ import { fetchHttp } from "../utils/http";
  * @returns {boolean} loading - A boolean indicating if the data is currently being loaded.
  */
 export function useTracks() {
-  const [tracks, setTracks] = useState([]);
+  const [tracks, setTracks] = useState<Track[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    fetchHttp("/tracks/")
-      .then((data) => setTracks(data))
+    fetchHttp<TracksResponse>("/tracks/")
+      .then((data) => {
+        if (data instanceof Error) {
+          setTracks([]);
+        } else {
+          setTracks(data);
+        }
+      })
       .finally(() => setLoading(false));
   }, []);
 

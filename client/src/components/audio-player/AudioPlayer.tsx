@@ -1,10 +1,15 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import styles from "./AudioPlayer.module.css";
+import type { Track } from "@/shared/hooks/schema";
 
-function AudioPlayer({ track }) {
+interface AudioPlayerProps {
+  track: Track;
+}
+
+function AudioPlayer({ track }: AudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -14,32 +19,47 @@ function AudioPlayer({ track }) {
     setIsPlaying(false);
   };
 
-  const handleTimeUpdate = (e) => {
+  const handleTimeUpdate = (e: any) => {
     setProgress(e.target.currentTime / e.target.duration);
   };
 
-  const handleSliderChange = (e) => {
-    audioRef.current.currentTime =
-      (e.target.value / 1000) * audioRef.current.duration;
+  const handleSliderChange = (e: any) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime =
+        (e.target.value / 1000) * audioRef.current.duration;
+    }
   };
 
   const handleTogglePlaybackClick = () => {
-    if (audioRef.current.paused) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
+    if (audioRef.current) {
+      if (audioRef.current.paused) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
     }
   };
 
   useEffect(() => {
-    audioRef.current.addEventListener("play", handlePlay);
-    audioRef.current.addEventListener("pause", handlePause);
-    audioRef.current.addEventListener("timeupdate", handleTimeUpdate);
+    const audioElement = audioRef.current;
+    if (audioElement) {
+      audioElement.addEventListener("play", handlePlay);
+      audioElement.addEventListener("pause", handlePause);
+      audioElement.addEventListener("timeupdate", handleTimeUpdate);
+
+      return () => {
+        audioElement.removeEventListener("play", handlePlay);
+        audioElement.removeEventListener("pause", handlePause);
+        audioElement.removeEventListener("timeupdate", handleTimeUpdate);
+      };
+    }
   }, []);
 
   useEffect(() => {
-    audioRef.current.play();
-    audioRef.current.currentTime = 0;
+    if (audioRef.current) {
+      audioRef.current.play();
+      audioRef.current.currentTime = 0;
+    }
   }, [track]);
 
   return (

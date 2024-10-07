@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import styles from "./TrackRow.module.css";
-import { Button } from "../../shared/ui";
+import { Button } from "../../shared/ui/button/Button";
 import { PlayListsDialog } from "../playlists/PlayListsDialog";
+import { Track } from "@/shared/hooks/schema";
 
-function TrackRow({ track, handlePlay }) {
+interface TrackRowProps {
+  track: Track;
+  handlePlay: (track: Track) => void;
+}
+
+function TrackRow({ track, handlePlay }: TrackRowProps) {
   const [open, setOpen] = useState(false);
 
   return (

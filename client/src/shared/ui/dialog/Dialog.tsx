@@ -2,7 +2,14 @@ import MUIDialog from "@mui/material/Dialog";
 import MUIDialogTitle from "@mui/material/DialogTitle";
 import MUIDialogContent from "@mui/material/DialogContent";
 
-export function Dialog({ onClose, open, title, content }) {
+interface DialogProps {
+  open: boolean;
+  onClose?: () => void;
+  title?: string | React.ReactNode;
+  content?: string | React.ReactNode;
+}
+
+export function Dialog({ onClose, open, title, content }: DialogProps) {
   return (
     <MUIDialog
       onClose={onClose}

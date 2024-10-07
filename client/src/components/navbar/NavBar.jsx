@@ -10,7 +10,7 @@ export function NavBar() {
         <li>
           <NavLink
             to="/"
-            className={({ isActive }) => isActive && styles.active}
+            className={({ isActive }) => (isActive ? styles.active : "")}
           >
             Tracks
           </NavLink>
@@ -18,7 +18,7 @@ export function NavBar() {
         <li>
           <NavLink
             to="/playlists"
-            className={({ isActive }) => isActive && styles.active}
+            className={({ isActive }) => (isActive ? styles.active : "")}
           >
             Playlists
           </NavLink>

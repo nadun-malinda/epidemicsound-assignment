@@ -1,5 +1,5 @@
 /**
- * Generic type representing a successful HTTP fetch response.
+ * A generic type representing a successful HTTP fetch response.
  *
  * @template T
  */
@@ -11,32 +11,31 @@ type FetchHttpSuccess<T = unknown> = T;
  * @template T - The expected type of the response data.
  * @param {RequestInfo | URL} input - The resource to fetch (URL or Request object).
  * @param {RequestInit} [init] - Optional init object containing custom settings for the request.
- * @returns {Promise<FetchHttpSuccess<T> | Error>} A promise that resolves to the parsed JSON response or an error.
+ * @returns {Promise<FetchHttpSuccess<T>>} A promise that resolves to the parsed JSON response or throws an error.
  */
 export async function fetchHttp<T = unknown>(
   input: RequestInfo | URL,
   init?: RequestInit
-): Promise<FetchHttpSuccess<T> | Error> {
+): Promise<FetchHttpSuccess<T>> {
+  const baseUrl = "http://0.0.0.0:8000";
+  const url = `${baseUrl}${input}`;
+
   try {
-    const baseUrl = "http://0.0.0.0:8000";
-    const url = `${baseUrl}/${input}`;
     const response = await fetch(url, init);
 
-    if (response.status === 404) {
-      return new Error("Not found!");
-    }
-
     if (!response.ok) {
-      return new Error("Error while fetching data");
+      // Throwing an error for non-2xx responses will help React Query handle it
+      const errorMessage = await response.text(); // Get error message from response if needed
+      throw new Error(errorMessage || "Error while fetching data");
     }
 
     // If successful, parse and return the JSON
-    return (await response.json()) as T;
-  } catch (error: unknown) {
+    return (await response.json()) as FetchHttpSuccess<T>;
+  } catch (error) {
+    // Handling different error types and re-throwing for better error handling
     if (error instanceof Error) {
-      return error;
+      throw error; // Rethrow the error for React Query to catch
     }
-
-    return new Error("Error while fetching data");
+    throw new Error("Unknown error occurred during fetch");
   }
 }

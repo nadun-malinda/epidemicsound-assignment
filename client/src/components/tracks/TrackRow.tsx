@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./TrackRow.module.css";
 import { Button } from "../../shared/ui/button/Button";
 import { PlayListsDialog } from "../playlists/PlayListsDialog";
-import { Track } from "@/shared/hooks/schema";
+import { Track } from "@/shared/data/tracks/schema";
 
 interface TrackRowProps {
   track: Track;

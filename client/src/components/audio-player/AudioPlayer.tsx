@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import styles from "./AudioPlayer.module.css";
-import type { Track } from "@/shared/hooks/schema";
+import type { Track } from "@/shared/data/tracks/schema";
 
 interface AudioPlayerProps {
   track: Track;

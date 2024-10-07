@@ -1,16 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import TrackRow from "./TrackRow";
 import AudioPlayer from "../audio-player/AudioPlayer";
+import { useTracks } from "../../shared/hooks/useTracks";
 
 export function TrackList() {
-  const [tracks, setTracks] = useState([]);
   const [currentTrack, setCurrentTrack] = useState();
-
-  useEffect(() => {
-    fetch("http://0.0.0.0:8000/tracks/", { mode: "cors" })
-      .then((res) => res.json())
-      .then((data) => setTracks(data));
-  }, []);
+  const { tracks } = useTracks();
 
   const handlePlay = (track) => setCurrentTrack(track);
 

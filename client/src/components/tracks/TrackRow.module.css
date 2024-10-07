@@ -5,6 +5,12 @@
   border-bottom: 1px solid #333;
 }
 
+.trackRow .trackInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 48px);
+}
+
 .trackRow:last-child {
   border-bottom: none;
 }

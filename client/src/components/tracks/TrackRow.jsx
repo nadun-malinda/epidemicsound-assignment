@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./TrackRow.module.css";
+import { Button } from "../../shared/ui/Button";
 
 function TrackRow({ track, handlePlay }) {
   return (
@@ -15,11 +16,15 @@ function TrackRow({ track, handlePlay }) {
           <path d="M20 12L8 5V19L20 12Z" fill="white" />
         </svg>
       </button>
-      <div className={styles.trackInfo}>
-        <div className={styles.trackTitle}>{track.title}</div>
-        <div className={styles.trackArtist}>
-          {track.main_artists.join(", ")}
+      <div className={styles.trackInfoContainer}>
+        <div className={styles.trackInfo}>
+          <div className={styles.trackTitle}>{track.title}</div>
+          <div className={styles.trackArtist}>
+            {track.main_artists.join(", ")}
+          </div>
         </div>
+
+        <Button>Add to playlist</Button>
       </div>
     </div>
   );

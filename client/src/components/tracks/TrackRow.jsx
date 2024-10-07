@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./TrackRow.module.css";
-import { Button } from "../../shared/ui/Button";
+import { Button } from "../../shared/ui";
+import { PlayListsDialog } from "../playlists/PlayListsDialog";
 
 function TrackRow({ track, handlePlay }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className={styles.trackRow}>
       <button className={styles.trackPlay} onClick={() => handlePlay(track)}>
@@ -24,7 +27,8 @@ function TrackRow({ track, handlePlay }) {
           </div>
         </div>
 
-        <Button>Add to playlist</Button>
+        <Button onClick={() => setOpen(true)}>Add to playlist</Button>
+        <PlayListsDialog open={open} onClose={() => setOpen(false)} />
       </div>
     </div>
   );

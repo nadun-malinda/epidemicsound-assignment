@@ -9,6 +9,6 @@ class TrackViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class PlaylistViewSet(viewsets.ModelViewSet):
-    queryset = models.Playlist.objects.all()
+    queryset = models.Playlist.objects.all().order_by('-created_at')
     serializer_class = serializers.PlaylistSerializer
     permission_classes = []

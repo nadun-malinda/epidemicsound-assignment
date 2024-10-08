@@ -1,26 +1,30 @@
 import { usePlayListsQuery } from "../../shared/data/playlists/usePlayListsQuery";
-import { useCreatePlayListMutation } from "../../shared/data/playlists/useCreatePlayListMutation";
-import { Button } from "../../shared/ui/button/Button";
 import { useEffect } from "react";
+import { PlayListCreate } from "./PlayListCreate";
+import { PlayList } from "@/shared/data/playlists/schema";
+import { useDeletePlayListMutation } from "../../shared/data/playlists/useDeletePlayListMutation";
 
 export function PlayLists() {
   const { playLists } = usePlayListsQuery();
-  const { mutate: createPlayList } = useCreatePlayListMutation();
+  const { mutate: deletePlayList } = useDeletePlayListMutation();
 
   useEffect(() => {
     console.log("playlists: ", playLists);
   }, [playLists]);
 
-  const handleCreatePlayList = () => {
-    createPlayList({ name: "My second play" });
+  const handleDelete = (id: PlayList["id"]) => {
+    deletePlayList({ id });
   };
 
   return (
     <>
-      <Button onClick={handleCreatePlayList}>Create</Button>
+      <PlayListCreate />
       <ul>
         {playLists?.map((playList) => (
-          <li key={playList.id}>{playList.name}</li>
+          <li key={playList.id}>
+            {playList.name}{" "}
+            <span onClick={() => handleDelete(playList.id)}> Delete</span>
+          </li>
         ))}
       </ul>
     </>

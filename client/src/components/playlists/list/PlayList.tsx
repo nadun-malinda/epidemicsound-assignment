@@ -1,15 +1,14 @@
+import React from "react";
 import { type PlayList as PlayListType } from "../../../shared/data/playlists/schema";
 import styles from "./PlayList.module.css";
-import { IconButton } from "../../../shared/ui/button/IconButton";
 import { useNavigate } from "react-router-dom";
 
 interface PlayListProps {
   playList: PlayListType;
-  onEdit: (playList: PlayListType) => void;
-  onDelete: (playList: PlayListType) => void;
+  children?: React.ReactNode;
 }
 
-export function PlayList({ playList, onEdit, onDelete }: PlayListProps) {
+export function PlayList({ playList, children }: PlayListProps) {
   const navigate = useNavigate();
 
   return (
@@ -24,10 +23,7 @@ export function PlayList({ playList, onEdit, onDelete }: PlayListProps) {
         </p>
       </div>
 
-      <div>
-        <IconButton icon="edit" onClick={() => onEdit(playList)} />
-        <IconButton icon="delete" onClick={() => onDelete(playList)} />
-      </div>
+      <div>{children}</div>
     </div>
   );
 }

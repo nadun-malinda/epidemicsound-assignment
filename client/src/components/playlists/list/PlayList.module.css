@@ -1,0 +1,27 @@
+.playList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding: 0.75rem 0;
+}
+
+.playList:last-child {
+  border-bottom: none;
+}
+
+.playListInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.playListTitle {
+  font-weight: 600;
+  margin: 0;
+}
+
+.playListTracks {
+  color: #767676;
+  margin: 0;
+}

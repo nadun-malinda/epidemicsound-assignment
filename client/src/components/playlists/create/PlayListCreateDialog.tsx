@@ -1,10 +1,10 @@
-import { Input } from "../../shared/ui/input/Input";
-import { Dialog } from "../../shared/ui/dialog/Dialog";
-import { Button } from "../../shared/ui/button/Button";
-import { useCreatePlayListMutation } from "../../shared/data/playlists/useCreatePlayListMutation";
+import { Input } from "../../../shared/ui/input/Input";
+import { Dialog } from "../../../shared/ui/dialog/Dialog";
+import { Button } from "../../../shared/ui/button/Button";
+import { useCreatePlayListMutation } from "../../../shared/data/playlists/useCreatePlayListMutation";
 import styles from "./PlayListCreateDialog.module.css";
 import { useEffect, useState } from "react";
-import { PlayList } from "../../shared/data/playlists/schema";
+import { PlayList } from "../../../shared/data/playlists/schema";
 
 interface PlayListCreateDialogProps {
   open: boolean;
@@ -40,12 +40,7 @@ interface DialogContentProps {
 }
 function DialogContent({ onSuccess }: DialogContentProps) {
   const [formData, setFormFData] = useState(initialFormData);
-  const {
-    mutate: createPlayList,
-    isError,
-    isLoading,
-    isSuccess,
-  } = useCreatePlayListMutation();
+  const { mutate: createPlayList, isSuccess } = useCreatePlayListMutation();
 
   useEffect(() => {
     onSuccess(isSuccess);

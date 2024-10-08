@@ -2,7 +2,7 @@ import styles from "./App.module.css";
 import { Routes, Route } from "react-router-dom";
 import { NavBar } from "./components/navbar/NavBar";
 import { TrackList } from "./components/tracks/TrackList";
-import { PlayLists } from "./components/playlists/PlayLists";
+import { PlayListsPage } from "./components/playlists/PlayListsPage";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<TrackList />} />
-        <Route path="/playlists" element={<PlayLists />} />
+        <Route path="/playlists" element={<PlayListsPage />} />
       </Routes>
     </main>
   );

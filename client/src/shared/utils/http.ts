@@ -29,6 +29,10 @@ export async function fetchHttp<T = unknown>(
       throw new Error(errorMessage || "Error while fetching data");
     }
 
+    if (response.status === 204) {
+      return null as FetchHttpSuccess<T>; // Return null or an empty object for 204
+    }
+
     // If successful, parse and return the JSON
     return (await response.json()) as FetchHttpSuccess<T>;
   } catch (error) {

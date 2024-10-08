@@ -13,16 +13,26 @@ export function Dialog({
   open,
   title,
   content,
-  maxWidth,
+  ...props
 }: DialogProps) {
   return (
     <MUIDialog
       onClose={onClose}
       open={open}
-      maxWidth={maxWidth}
-      PaperProps={{ sx: { bgcolor: "#121212", color: "#ffffff" } }}
+      fullWidth
+      PaperProps={{
+        sx: {
+          bgcolor: "#121212",
+          color: "#ffffff",
+          border: "1px solid #333",
+        },
+      }}
     >
-      {title && <MUIDialogTitle sx={{ m: 0, p: 2 }}>{title}</MUIDialogTitle>}
+      {title && (
+        <MUIDialogTitle sx={{ m: 0, p: 2, borderBottom: "1px solid #333" }}>
+          {title}
+        </MUIDialogTitle>
+      )}
       {content && <MUIDialogContent dividers>{content}</MUIDialogContent>}
     </MUIDialog>
   );

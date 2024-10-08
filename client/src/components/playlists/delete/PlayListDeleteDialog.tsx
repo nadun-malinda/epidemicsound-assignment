@@ -46,14 +46,20 @@ function DialogContent({ playList, onClose }: DialogContentProps) {
       <p>{`${
         isSuccess
           ? "Playlist successfully deleted!"
-          : `Are you sure, you want to delete the playlist "${playList.name}"`
+          : `Are you sure, you want to delete the playlist "${
+              playList.name
+            }" with ${playList.tracks?.length || 0} Tracks?`
       }`}</p>
       <div className={styles.buttonGroup}>
-        <Button variant="outlined" onClick={onClose} disabled={isLoading}>
+        <Button variant="text" onClick={onClose} disabled={isLoading}>
           {isSuccess ? "Close" : "Cancel"}
         </Button>
         {!isSuccess && (
-          <Button onClick={handleDeletePlayList} loading={isLoading}>
+          <Button
+            variant="text"
+            onClick={handleDeletePlayList}
+            loading={isLoading}
+          >
             Delete
           </Button>
         )}

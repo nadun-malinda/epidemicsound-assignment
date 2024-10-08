@@ -73,7 +73,6 @@ function DialogContent({ onSuccess }: DialogContentProps) {
           value={formData.description}
           onChange={handleChange}
           multiline
-          rows={4}
         />
         <Button type="submit">Create</Button>
       </form>

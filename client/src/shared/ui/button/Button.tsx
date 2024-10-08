@@ -3,9 +3,12 @@ import MUIButton, {
 } from "@mui/material/Button";
 import styles from "./Button.module.css";
 import spin from "../../../assets/spin.png";
+import { getIcon, type Icon } from "../helpers/getIcon";
 
 interface ButtonProps extends MUIButtonProps {
   loading?: boolean;
+  startIcon?: Icon;
+  endIcon?: Icon;
 }
 
 export function Button({
@@ -14,6 +17,8 @@ export function Button({
   children,
   color = "inherit",
   variant = "contained",
+  startIcon,
+  endIcon,
   ...props
 }: ButtonProps) {
   return (
@@ -21,8 +26,11 @@ export function Button({
       color={color}
       variant={variant}
       disabled={disabled || loading}
+      startIcon={startIcon && getIcon(startIcon)}
+      endIcon={endIcon && getIcon(endIcon)}
       sx={{
-        color: variant === "outlined" ? "inherit" : "#000",
+        color:
+          variant === "outlined" || variant === "text" ? "inherit" : "#000",
       }}
       className={styles.button}
       {...props}

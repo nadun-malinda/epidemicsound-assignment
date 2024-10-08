@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import styles from "./TrackRow.module.css";
-import { Button } from "../../shared/ui/button/Button";
 import { PlayListsDialog } from "../playlists/PlayListsDialog";
 import { Track } from "@/shared/data/tracks/schema";
+import { IconButton } from "../../shared/ui/button/IconButton";
 
 interface TrackRowProps {
   track: Track;
   handlePlay: (track: Track) => void;
+  onAddToPlayList: (track: Track) => void;
 }
 
-function TrackRow({ track, handlePlay }: TrackRowProps) {
+function TrackRow({ track, handlePlay, onAddToPlayList }: TrackRowProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -33,8 +34,12 @@ function TrackRow({ track, handlePlay }: TrackRowProps) {
           </div>
         </div>
 
-        <Button onClick={() => setOpen(true)}>Add to playlist</Button>
-        <PlayListsDialog open={open} onClose={() => setOpen(false)} />
+        <IconButton
+          size="large"
+          icon="playListAdd"
+          onClick={() => onAddToPlayList(track)}
+        />
+        {/* <PlayListsDialog open={open} onClose={() => setOpen(false)} /> */}
       </div>
     </div>
   );

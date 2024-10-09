@@ -1,19 +1,12 @@
-import { Button, Grid, IconButton } from "../../shared/ui";
-import { useParams, useNavigate } from "react-router-dom";
+import { Button, Grid } from "../../shared/ui";
+import { useNavigate } from "react-router-dom";
+import { PlayListTrackSuggestions } from "./PlayListTrackSuggestions";
+import { PlayListTracks } from "./PlayListTracks";
+import { PlayListInfo } from "./PlayListInfo";
 import styles from "./PlayList.module.css";
-import emptyPlayList from "../../assets/playlist-empty.png";
-import { usePlayListByIdQuery } from "../../shared/data/playlists/usePlayListByIdQuery";
-import { TrackListContainer } from "../tracks/TrackListContainer";
-import { type Track } from "../../shared/data/tracks/schema";
 
 export function PlayList() {
-  const { id } = useParams();
-  const { playList } = usePlayListByIdQuery(id);
   const navigate = useNavigate();
-
-  const handleAddToPlayList = (track: Track) => {
-    console.log(">>> track: ", track);
-  };
 
   return (
     <div>
@@ -24,37 +17,11 @@ export function PlayList() {
       <div className={styles.playList}>
         <Grid container spacing={6}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <div className={styles.playListInfoBox}>
-              <div className={styles.playListCover}>
-                <img src={emptyPlayList} alt="Empty playlist" />
-              </div>
-              <p className={styles.title}>{playList?.name}</p>
-              <div className={styles.playListMeta}>
-                <p>{playList?.tracks.length} tracks</p>
-                <p>
-                  {playList?.created_at &&
-                    new Date(playList?.created_at).getDate()}
-                </p>
-              </div>
-            </div>
+            <PlayListInfo />
           </Grid>
           <Grid size={{ xs: 12, md: 8 }}>
-            <div>
-              <p className={styles.title}>Your tracks</p>
-              <p>No tracks yet</p>
-            </div>
-            <div>
-              <p className={styles.title}>Suggestions</p>
-              <TrackListContainer>
-                {(track) => (
-                  <IconButton
-                    size="large"
-                    icon="playListAdd"
-                    onClick={() => handleAddToPlayList(track)}
-                  />
-                )}
-              </TrackListContainer>
-            </div>
+            <PlayListTracks />
+            <PlayListTrackSuggestions />
           </Grid>
         </Grid>
       </div>

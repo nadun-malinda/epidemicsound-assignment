@@ -16,7 +16,7 @@ export function TrackAddToPlayListDialog({
   onClose,
   trackId,
 }: TrackAddToPlayListDialogProps) {
-  const { mutate: updatePlayList, isSuccess } = useUpdatePlayListMutation();
+  const { mutate: updatePlayList } = useUpdatePlayListMutation();
 
   const handleOnTrackAddToPlayList = (playList: PlayList) => {
     console.log(">>> addedd: ", playList);

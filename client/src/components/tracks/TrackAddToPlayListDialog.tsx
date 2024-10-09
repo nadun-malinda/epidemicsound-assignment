@@ -29,7 +29,7 @@ export function TrackAddToPlayListDialog({
 
   return (
     <Dialog
-      title="Playlists"
+      title="Add to playlists"
       content={
         <PlayLists>
           {(playList) => (

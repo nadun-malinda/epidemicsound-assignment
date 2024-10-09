@@ -8,7 +8,7 @@ export function PlayListPage() {
   return (
     <div>
       <Button
-        variant="text"
+        // variant="text"
         startIcon="back"
         onClick={() => navigate("/playlists")}
       >

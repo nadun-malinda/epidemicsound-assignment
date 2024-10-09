@@ -5,12 +5,14 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import PlaylistAddCheckOutlinedIcon from "@mui/icons-material/PlaylistAddCheckOutlined";
+import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 
 export type Icon =
   | "delete"
   | "add"
   | "playListAdd"
   | "playListAddCheck"
+  | "arrowForward"
   | "edit"
   | "back";
 
@@ -27,6 +29,9 @@ export function getIcon(icon: Icon) {
 
     case "playListAddCheck":
       return <PlaylistAddCheckOutlinedIcon />;
+
+    case "arrowForward":
+      return <ArrowForwardOutlinedIcon />;
 
     case "edit":
       return <EditOutlinedIcon />;

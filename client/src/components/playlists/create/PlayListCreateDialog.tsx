@@ -24,9 +24,12 @@ export function PlayListCreateDialog({
     <Dialog
       open={open}
       onClose={onClose}
-      title="Create a playlist"
+      title="New playlist"
       content={
-        <DialogContent onSuccess={(isSuccess) => isSuccess && onClose()} />
+        <DialogContent
+          onClose={onClose}
+          onSuccess={(isSuccess) => isSuccess && onClose()}
+        />
       }
       maxWidth="lg"
     />
@@ -35,8 +38,10 @@ export function PlayListCreateDialog({
 
 interface DialogContentProps {
   onSuccess: (isSuccess: boolean) => void;
+  onClose: () => void;
 }
-function DialogContent({ onSuccess }: DialogContentProps) {
+function DialogContent({ onSuccess, onClose }: DialogContentProps) {
+  const [formError, setFormError] = useState(false);
   const [formData, setFormFData] = useState(initialFormData);
   const { mutate: createPlayList, isSuccess } = useCreatePlayListMutation();
 
@@ -49,19 +54,29 @@ function DialogContent({ onSuccess }: DialogContentProps) {
   ) => {
     const { name, value } = e.target;
     setFormFData({ ...formData, [name]: value });
+    setFormError(name === "");
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createPlayList(formData);
+
+    if (formData.name) {
+      setFormError(false);
+      createPlayList(formData);
+    } else {
+      setFormError(true);
+    }
   };
 
   return (
     <div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input
+          error={formError}
+          helperText={formError && "Name is required"}
           name="name"
           label="Name"
+          variant="standard"
           value={formData.name}
           onChange={handleChange}
         />
@@ -72,7 +87,12 @@ function DialogContent({ onSuccess }: DialogContentProps) {
           onChange={handleChange}
           multiline
         />
-        <Button type="submit">Create</Button>
+        <div className={styles.buttonGroup}>
+          <Button variant="text" onClick={onClose}>
+            Cancel
+          </Button>
+          <Button type="submit">Create</Button>
+        </div>
       </form>
     </div>
   );

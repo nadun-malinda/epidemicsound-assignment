@@ -28,7 +28,7 @@ class TrackSerializer(serializers.ModelSerializer):
 
 class PlaylistSerializer(serializers.ModelSerializer):
     # Instead of PrimaryKeyRelatedField, use TrackSerializer to return the full object
-    tracks = TrackSerializer(many=True)
+    tracks = TrackSerializer(many=True, read_only=True)
 
     class Meta:
         model = models.Playlist

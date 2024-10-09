@@ -29,7 +29,15 @@ export function Dialog({
       }}
     >
       {title && (
-        <MUIDialogTitle sx={{ m: 0, p: 2, borderBottom: "1px solid #333" }}>
+        <MUIDialogTitle
+          sx={{
+            m: 0,
+            p: 2,
+            borderBottom: "1px solid #333",
+            fontWeight: 600,
+            fontSize: "1.5rem",
+          }}
+        >
           {title}
         </MUIDialogTitle>
       )}

@@ -1,14 +1,13 @@
 import styles from "./TrackRow.module.css";
-import { Track } from "@/shared/data/tracks/schema";
-import { IconButton } from "../../shared/ui";
+import { Track } from "../../shared/data/tracks/schema";
 
 interface TrackRowProps {
   track: Track;
   handlePlay: (track: Track) => void;
-  onAddToPlayList: (track: Track) => void;
+  children?: React.ReactNode;
 }
 
-function TrackRow({ track, handlePlay, onAddToPlayList }: TrackRowProps) {
+function TrackRow({ track, handlePlay, children }: TrackRowProps) {
   return (
     <div className={styles.trackRow}>
       <button className={styles.trackPlay} onClick={() => handlePlay(track)}>
@@ -30,11 +29,7 @@ function TrackRow({ track, handlePlay, onAddToPlayList }: TrackRowProps) {
           </div>
         </div>
 
-        <IconButton
-          size="large"
-          icon="playListAdd"
-          onClick={() => onAddToPlayList(track)}
-        />
+        <div>{children}</div>
       </div>
     </div>
   );

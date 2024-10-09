@@ -20,8 +20,10 @@ export function PlayList() {
             <PlayListInfo />
           </Grid>
           <Grid size={{ xs: 12, md: 8 }}>
-            <PlayListTracks />
-            <PlayListTrackSuggestions />
+            <div className={styles.trackContainer}>
+              <PlayListTracks />
+              <PlayListTrackSuggestions />
+            </div>
           </Grid>
         </Grid>
       </div>

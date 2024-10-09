@@ -21,7 +21,7 @@ export function PlayListTrackSuggestions() {
     <div>
       <p className={styles.title}>Suggestions</p>
       {suggestedTracks?.length === 0 ? (
-        <p>No suggested tracks</p>
+        <p className={styles.playListMeta}>No suggested tracks</p>
       ) : (
         <TrackList tracks={suggestedTracks}>
           {(track) => (

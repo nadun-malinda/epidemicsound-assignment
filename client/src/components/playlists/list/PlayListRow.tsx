@@ -1,6 +1,7 @@
 import React from "react";
 import { type PlayList as PlayListType } from "../../../shared/data/playlists/schema";
 import styles from "./PlayListRow.module.css";
+import { pluralize } from "../../../shared/utils/text";
 
 interface PlayListProps {
   playList: PlayListType;
@@ -28,7 +29,7 @@ export function PlayListRow({ playList, children }: PlayListProps) {
       <div className={styles.playListInfo}>
         <p className={styles.playListTitle}>{playList.name}</p>
         <p className={styles.playListTracks}>
-          {playList?.tracks?.length || 0} Tracks
+          {pluralize(playList?.tracks?.length, "track")}
         </p>
       </div>
 

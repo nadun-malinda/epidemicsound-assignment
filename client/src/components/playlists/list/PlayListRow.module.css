@@ -1,4 +1,4 @@
-.playList {
+.playListRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,7 +6,7 @@
   padding: 0.75rem 0;
 }
 
-.playList:last-child {
+.playListRow:last-child {
   border-bottom: none;
 }
 

@@ -1,4 +1,4 @@
-import { Button } from "../../shared/ui/button/Button";
+import { Button } from "../../shared/ui";
 import { useParams, useNavigate } from "react-router-dom";
 
 export function PlayListPage() {

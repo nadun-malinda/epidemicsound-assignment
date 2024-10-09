@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "../../../shared/ui/button/Button";
+import { Button } from "../../../shared/ui";
 import { useCreatePlayListMutation } from "../../../shared/data/playlists/useCreatePlayListMutation";
 import { PlayListCreateDialog } from "./PlayListCreateDialog";
 

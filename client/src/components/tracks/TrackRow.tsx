@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import styles from "./TrackRow.module.css";
-import { PlayListsDialog } from "../playlists/PlayListsDialog";
 import { Track } from "@/shared/data/tracks/schema";
-import { IconButton } from "../../shared/ui/button/IconButton";
+import { IconButton } from "../../shared/ui";
 
 interface TrackRowProps {
   track: Track;
@@ -11,8 +9,6 @@ interface TrackRowProps {
 }
 
 function TrackRow({ track, handlePlay, onAddToPlayList }: TrackRowProps) {
-  const [open, setOpen] = useState(false);
-
   return (
     <div className={styles.trackRow}>
       <button className={styles.trackPlay} onClick={() => handlePlay(track)}>
@@ -39,7 +35,6 @@ function TrackRow({ track, handlePlay, onAddToPlayList }: TrackRowProps) {
           icon="playListAdd"
           onClick={() => onAddToPlayList(track)}
         />
-        {/* <PlayListsDialog open={open} onClose={() => setOpen(false)} /> */}
       </div>
     </div>
   );

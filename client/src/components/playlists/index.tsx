@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { PlayListCreate } from "./create/PlayListCreate";
-import { PlayLists } from "./list/PlayLists";
+import { PlayLists } from "./list";
+import { PlayListCreate } from "./create";
+import { PlayListDeleteDialog } from "./delete";
 import { type PlayList } from "../../shared/data/playlists/schema";
-import { PlayListDeleteDialog } from "./delete/PlayListDeleteDialog";
-import { IconButton } from "../../shared/ui/button/IconButton";
+import { IconButton } from "../../shared/ui";
 
 export function PlayListsPage() {
   const [playList, setPlayList] = useState<PlayList>();

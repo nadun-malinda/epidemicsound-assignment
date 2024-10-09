@@ -1,6 +1,4 @@
-import { Input } from "../../../shared/ui/input/Input";
-import { Dialog } from "../../../shared/ui/dialog/Dialog";
-import { Button } from "../../../shared/ui/button/Button";
+import { Input, Button, Dialog } from "../../../shared/ui";
 import { useCreatePlayListMutation } from "../../../shared/data/playlists/useCreatePlayListMutation";
 import styles from "./PlayListCreateDialog.module.css";
 import { useEffect, useState } from "react";

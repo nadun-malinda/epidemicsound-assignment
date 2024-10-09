@@ -1,9 +1,9 @@
 import { useUpdatePlayListMutation } from "../../shared/data/playlists/useUpdatePlayListMutation";
 import { type PlayList } from "../../shared/data/playlists/schema";
 import { Track } from "../../shared/data/tracks/schema";
-import { Dialog } from "../../shared/ui/dialog/Dialog";
+import { Dialog } from "../../shared/ui";
 import { PlayLists } from "../playlists/list/PlayLists";
-import { IconButton } from "../../shared/ui/button/IconButton";
+import { IconButton } from "../../shared/ui";
 
 interface TrackAddToPlayListDialogProps {
   open: boolean;

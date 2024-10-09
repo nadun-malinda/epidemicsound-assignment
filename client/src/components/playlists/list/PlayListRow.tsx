@@ -1,6 +1,6 @@
 import React from "react";
 import { type PlayList as PlayListType } from "../../../shared/data/playlists/schema";
-import styles from "./PlayList.module.css";
+import styles from "./PlayListRow.module.css";
 import { useNavigate } from "react-router-dom";
 
 interface PlayListProps {
@@ -8,11 +8,11 @@ interface PlayListProps {
   children?: React.ReactNode;
 }
 
-export function PlayList({ playList, children }: PlayListProps) {
+export function PlayListRow({ playList, children }: PlayListProps) {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.playList}>
+    <div className={styles.playListRow}>
       <div
         className={styles.playListInfo}
         onClick={() => navigate(`/playlists/${playList.id}`)}

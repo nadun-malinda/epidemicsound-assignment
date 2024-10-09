@@ -1,6 +1,5 @@
 import { PlayList } from "../../../shared/data/playlists/schema";
-import { Dialog } from "../../../shared/ui/dialog/Dialog";
-import { Button } from "../../../shared/ui/button/Button";
+import { Button, Dialog } from "../../../shared/ui";
 import { useDeletePlayListMutation } from "../../../shared/data/playlists/useDeletePlayListMutation";
 import styles from "./PlayListDeleteDialog.module.css";
 

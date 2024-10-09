@@ -1,6 +1,6 @@
 import { type PlayList as PlayListType } from "../../../shared/data/playlists/schema";
 import { usePlayListsQuery } from "../../../shared/data/playlists/usePlayListsQuery";
-import { PlayList } from "./PlayList";
+import { PlayListRow } from "./PlayListRow";
 import styles from "./PlayLists.module.css";
 
 interface PlayListsProps {
@@ -13,9 +13,9 @@ export function PlayLists({ children }: PlayListsProps) {
   return (
     <div className={styles.playLists}>
       {playLists?.map((playList) => (
-        <PlayList key={playList.id} playList={playList}>
+        <PlayListRow key={playList.id} playList={playList}>
           {children && children(playList)}
-        </PlayList>
+        </PlayListRow>
       ))}
     </div>
   );

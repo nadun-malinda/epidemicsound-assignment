@@ -1,5 +1,6 @@
 import styles from "./TrackRow.module.css";
 import { Track } from "../../shared/data/tracks/schema";
+import { formatSecondsToHMS } from "../../shared/utils/date";
 
 interface TrackRowProps {
   track: Track;
@@ -29,7 +30,12 @@ function TrackRow({ track, handlePlay, children }: TrackRowProps) {
           </div>
         </div>
 
-        <div>{children}</div>
+        <div>
+          <span className={styles.trackLength}>
+            {formatSecondsToHMS(track.length)}
+          </span>
+          {children}
+        </div>
       </div>
     </div>
   );

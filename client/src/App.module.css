@@ -1,11 +1,12 @@
 .app {
   padding: 1rem;
-  margin: 0 auto;
+  margin: 0 auto 4rem auto;
 }
 
 @media (min-width: 500px) {
   .app {
     padding: 4rem;
-    max-width: 80%;
+    width: 80%;
+    max-width: 1000px;
   }
 }

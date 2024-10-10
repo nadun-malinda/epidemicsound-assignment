@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { IconButton } from "../../shared/ui";
+import { Button } from "../../shared/ui";
 import { PlayListDeleteDialog } from "./PlayListDeleteDialog";
 import { type PlayList } from "../../shared/data/playlists/schema";
 import { useNavigate } from "react-router-dom";
+import styles from "./PlayListActions.module.css";
 
 interface PlayListActionsProps {
   playList: PlayList;
@@ -14,7 +15,6 @@ export function PlayListActions({ playList }: PlayListActionsProps) {
     useState(false);
 
   const handleDelete = () => {
-    console.log(">> dleete");
     setOpenPlayListDeleteDialog(true);
   };
 
@@ -27,8 +27,10 @@ export function PlayListActions({ playList }: PlayListActionsProps) {
 
   return (
     <>
-      <div>
-        <IconButton icon="delete" onClick={handleDelete} />
+      <div className={styles.action}>
+        <Button size="small" variant="outlined" onClick={handleDelete}>
+          Delete
+        </Button>
       </div>
       <PlayListDeleteDialog
         open={openPlayListDeleteDialog}

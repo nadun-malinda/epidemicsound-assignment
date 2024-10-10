@@ -4,7 +4,6 @@ import { PlayListTrackSuggestions } from "./PlayListTrackSuggestions";
 import { PlayListTracks } from "./PlayListTracks";
 import { PlayListInfo } from "./PlayListInfo";
 import styles from "./PlayList.module.css";
-import { PlayListActions } from "./PlayListActions";
 import { usePlayListByIdQuery } from "../../shared/data/playlists/usePlayListByIdQuery";
 
 export function PlayList() {
@@ -26,7 +25,6 @@ export function PlayList() {
         <Grid container spacing={6}>
           <Grid size={{ xs: 12, md: 4 }}>
             <PlayListInfo playList={playList} />
-            <PlayListActions playList={playList} />
           </Grid>
           <Grid size={{ xs: 12, md: 8 }}>
             <div className={styles.trackContainer}>

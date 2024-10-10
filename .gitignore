@@ -23,7 +23,7 @@ typings/
 # Built libraries
 dist/
 
-data/
+/data
 
 *.pyc
 

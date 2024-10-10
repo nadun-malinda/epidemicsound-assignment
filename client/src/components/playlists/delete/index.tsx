@@ -1,1 +1,1 @@
-export { PlayListDeleteDialog } from "./PlayListDeleteDialog";
+export { PlayListDeleteDialog } from "../../playlist/PlayListDeleteDialog";

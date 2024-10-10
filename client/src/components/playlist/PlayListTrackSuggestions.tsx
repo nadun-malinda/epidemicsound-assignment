@@ -1,20 +1,23 @@
-import { useParams } from "react-router-dom";
 import { IconButton } from "../../shared/ui";
 import { TrackList } from "../tracks/TrackList";
 import { type Track } from "../../shared/data/tracks/schema";
 import { useUpdatePlayListMutation } from "../../shared/data/playlists/useUpdatePlayListMutation";
-import { usePlayListTrackSuggestionsQuery } from "../../shared/data/playlists/usePlayListTrackSuggestionsQuery";
 import styles from "./PlayList.module.css";
+import { type PlayList } from "../../shared/data/playlists/schema";
+import { useTrackSuggestionsQuery } from "../../shared/data/tracks/useTrackSuggestionsQuery";
 
-export function PlayListTrackSuggestions() {
-  const { id } = useParams();
-  const { suggestedTracks } = usePlayListTrackSuggestionsQuery(id);
+interface PlayListTrackSuggestionsProps {
+  playList: PlayList;
+}
+
+export function PlayListTrackSuggestions({
+  playList,
+}: PlayListTrackSuggestionsProps) {
+  const { suggestedTracks } = useTrackSuggestionsQuery(playList.id.toString());
   const { mutate: updatePlayList } = useUpdatePlayListMutation();
 
   const handleAddToPlayList = (track: Track) => {
-    if (id) {
-      updatePlayList({ id: +id, tracks: [track.id] });
-    }
+    updatePlayList({ id: playList.id, tracks: [track.id] });
   };
 
   return (

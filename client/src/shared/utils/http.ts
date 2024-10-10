@@ -30,6 +30,7 @@ export async function fetchHttp<T = unknown>(
     }
 
     if (response.status === 204) {
+      console.log(">>> hit: ", response.status);
       return null as FetchHttpSuccess<T>; // Return null or an empty object for 204
     }
 

@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom";
 import emptyPlayList from "../../assets/playlist-empty.png";
-import { usePlayListByIdQuery } from "../../shared/data/playlists/usePlayListByIdQuery";
 import styles from "./PlayListInfo.module.css";
 import { pluralize } from "../../shared/utils/text";
+import { type PlayList } from "../../shared/data/playlists/schema";
 
-export function PlayListInfo() {
-  const { id } = useParams();
-  const { playList } = usePlayListByIdQuery(id);
+interface PlayListInfoProps {
+  playList: PlayList;
+}
 
+export function PlayListInfo({ playList }: PlayListInfoProps) {
   return (
     <div className={styles.playListInfoBox}>
       <div className={styles.playListCover}>

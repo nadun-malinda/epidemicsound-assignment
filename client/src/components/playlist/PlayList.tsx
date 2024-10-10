@@ -1,12 +1,20 @@
 import { Button, Grid } from "../../shared/ui";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { PlayListTrackSuggestions } from "./PlayListTrackSuggestions";
 import { PlayListTracks } from "./PlayListTracks";
 import { PlayListInfo } from "./PlayListInfo";
 import styles from "./PlayList.module.css";
+import { PlayListActions } from "./PlayListActions";
+import { usePlayListByIdQuery } from "../../shared/data/playlists/usePlayListByIdQuery";
 
 export function PlayList() {
   const navigate = useNavigate();
+  const { id } = useParams();
+  const { playList } = usePlayListByIdQuery(id!);
+
+  if (!playList) {
+    return <>Playlist not found</>;
+  }
 
   return (
     <div>
@@ -17,12 +25,13 @@ export function PlayList() {
       <div className={styles.playList}>
         <Grid container spacing={6}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <PlayListInfo />
+            <PlayListInfo playList={playList} />
+            <PlayListActions playList={playList} />
           </Grid>
           <Grid size={{ xs: 12, md: 8 }}>
             <div className={styles.trackContainer}>
-              <PlayListTracks />
-              <PlayListTrackSuggestions />
+              <PlayListTracks playList={playList} />
+              <PlayListTrackSuggestions playList={playList} />
             </div>
           </Grid>
         </Grid>

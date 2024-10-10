@@ -27,6 +27,7 @@ export function Dialog({
           border: "1px solid #333",
         },
       }}
+      {...props}
     >
       {title && (
         <MUIDialogTitle

@@ -8,6 +8,20 @@ class TrackViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.TrackSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+    def list(self, request, *args, **kwargs):
+        exclude_playlist_id = request.query_params.get('exclude_playlist')
+        queryset = self.get_queryset()
+
+        if exclude_playlist_id:
+            # Exclude tracks that are in the specified playlist
+            playlist = models.Playlist.objects.filter(id=exclude_playlist_id).first()
+            if playlist:
+                queryset = queryset.exclude(id__in=playlist.tracks.values_list('id', flat=True))
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+
 class PlaylistViewSet(viewsets.ModelViewSet):
     queryset = models.Playlist.objects.all().order_by('-created_at')
     serializer_class = serializers.PlaylistSerializer
@@ -41,18 +55,4 @@ class PlaylistViewSet(viewsets.ModelViewSet):
 
         playlist.save()  # Save changes to the playlist
         serializer = self.get_serializer(playlist)  # Serialize the updated playlist
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-    def get_suggested_tracks(self, request, pk=None):
-        """
-        Get suggested tracks for a specific playlist.
-        Excludes tracks that are already in the playlist.
-        """
-        playlist = self.get_object()  # Get the current playlist
-        existing_track_ids = playlist.tracks.values_list('id', flat=True)  # Get IDs of existing tracks
-
-        # Get all tracks excluding the existing ones in the playlist
-        suggested_tracks = models.Track.objects.exclude(id__in=existing_track_ids)
-        serializer = serializers.TrackSerializer(suggested_tracks, many=True)
-
         return Response(serializer.data, status=status.HTTP_200_OK)

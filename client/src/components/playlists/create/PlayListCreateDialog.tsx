@@ -31,7 +31,6 @@ export function PlayListCreateDialog({
           onSuccess={(isSuccess) => isSuccess && onClose()}
         />
       }
-      maxWidth="lg"
     />
   );
 }

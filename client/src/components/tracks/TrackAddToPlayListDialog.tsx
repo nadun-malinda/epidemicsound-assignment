@@ -1,5 +1,5 @@
 import { PlayListsContainer } from "../playlists/PlayListsContainer";
-import { IconButton, Dialog } from "../../shared/ui";
+import { IconButton, Dialog, Snackbar } from "../../shared/ui";
 import { type Track } from "../../shared/data/tracks/schema";
 import { type PlayList } from "../../shared/data/playlists/schema";
 import { useUpdatePlayListMutation } from "../../shared/data/playlists/useUpdatePlayListMutation";
@@ -15,7 +15,11 @@ export function TrackAddToPlayListDialog({
   onClose,
   trackId,
 }: TrackAddToPlayListDialogProps) {
-  const { mutate: updatePlayList } = useUpdatePlayListMutation();
+  const {
+    mutate: updatePlayList,
+    isSuccess,
+    isError,
+  } = useUpdatePlayListMutation();
 
   const handleOnTrackAddToPlayList = (playList: PlayList) => {
     updatePlayList({
@@ -26,20 +30,24 @@ export function TrackAddToPlayListDialog({
   };
 
   return (
-    <Dialog
-      title="Add to playlists"
-      content={
-        <PlayListsContainer>
-          {(playList) => (
-            <IconButton
-              icon={"playListAdd"}
-              onClick={() => handleOnTrackAddToPlayList(playList)}
-            />
-          )}
-        </PlayListsContainer>
-      }
-      open={open}
-      onClose={onClose}
-    />
+    <>
+      <Dialog
+        title="Add to playlists"
+        content={
+          <PlayListsContainer>
+            {(playList) => (
+              <IconButton
+                icon={"playListAdd"}
+                onClick={() => handleOnTrackAddToPlayList(playList)}
+              />
+            )}
+          </PlayListsContainer>
+        }
+        open={open}
+        onClose={onClose}
+      />
+      <Snackbar open={isSuccess} message="Added to playlist successfully!" />
+      <Snackbar open={isError} message="Failed to add to playlist!" />
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import { IconButton } from "../../shared/ui";
+import { IconButton, Snackbar } from "../../shared/ui";
 import { TrackList } from "../tracks/TrackList";
 import { type Track } from "../../shared/data/tracks/schema";
 import { useUpdatePlayListMutation } from "../../shared/data/playlists/useUpdatePlayListMutation";
@@ -14,7 +14,7 @@ export function PlayListTrackSuggestions({
   playList,
 }: PlayListTrackSuggestionsProps) {
   const { suggestedTracks } = useTrackSuggestionsQuery(playList.id.toString());
-  const { mutate: updatePlayList } = useUpdatePlayListMutation();
+  const { mutate: updatePlayList, isError } = useUpdatePlayListMutation();
 
   const handleAddToPlayList = (track: Track) => {
     updatePlayList({ id: playList.id, tracks: [track.id] });
@@ -36,6 +36,8 @@ export function PlayListTrackSuggestions({
           )}
         </TrackList>
       )}
+
+      <Snackbar open={isError} message="Failed to add the track!" />
     </div>
   );
 }

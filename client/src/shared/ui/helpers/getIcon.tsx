@@ -8,10 +8,12 @@ import PlaylistAddCheckOutlinedIcon from "@mui/icons-material/PlaylistAddCheckOu
 import PlaylistRemoveOutlinedIcon from "@mui/icons-material/PlaylistRemoveOutlined";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import PlaylistPlayOutlinedIcon from "@mui/icons-material/PlaylistPlayOutlined";
+import CloseIcon from "@mui/icons-material/Close";
 
 export type Icon =
   | "delete"
   | "add"
+  | "close"
   | "playListAdd"
   | "playListPlay"
   | "playListAddCheck"
@@ -27,6 +29,9 @@ export function getIcon(icon: Icon) {
 
     case "add":
       return <AddIcon />;
+
+    case "close":
+      return <CloseIcon />;
 
     case "playListAdd":
       return <PlaylistAddIcon />;

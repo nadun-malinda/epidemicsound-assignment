@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "react-query";
 import { fetchHttp } from "../../utils/http";
 import type { PlayList } from "./schema";
-import { playListKeys } from "../../../shared/utils/query";
+import { playListKeys, trackKeys } from "../../../shared/utils/query";
 
 type Mutate = Partial<Omit<PlayList, "tracks">> & {
   id: PlayList["id"];
@@ -51,6 +51,10 @@ export function useUpdatePlayListMutation() {
         prev.map((playList) =>
           playList.id === updatedPlayList.id ? updatedPlayList : playList
         )
+      );
+
+      queryClient.invalidateQueries(
+        trackKeys.list(updatedPlayList.id.toString())
       );
     },
   });

@@ -14,7 +14,7 @@ type Mutate = Partial<PlayList> & { name: PlayList["name"] };
 export function useCreatePlayListMutation() {
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading, isError, isSuccess } = useMutation({
+  const { mutate, isLoading, isError, isSuccess, data } = useMutation({
     mutationFn: async ({ name, description, tracks = [] }: Mutate) =>
       await fetchHttp<PlayList>("/playlists/", {
         method: "POST",
@@ -39,5 +39,6 @@ export function useCreatePlayListMutation() {
     isLoading,
     isError,
     isSuccess,
+    data,
   };
 }

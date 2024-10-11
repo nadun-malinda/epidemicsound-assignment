@@ -19,10 +19,11 @@ export function useTracksQuery() {
     data: tracks,
     isLoading,
     isError,
+    isSuccess,
   } = useQuery<TracksResponse>({
     queryKey: trackKeys.lists(),
     queryFn: () => fetchHttp<TracksResponse>("/tracks/"),
   });
 
-  return { tracks, isLoading, isError };
+  return { tracks, isLoading, isError, isSuccess };
 }

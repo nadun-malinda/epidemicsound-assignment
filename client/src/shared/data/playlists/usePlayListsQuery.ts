@@ -13,11 +13,12 @@ export function usePlayListsQuery() {
     data: playLists,
     isLoading,
     isError,
+    isSuccess,
   } = useQuery({
     queryKey: playListKeys.list(),
     queryFn: () =>
       fetchHttp<PlayListResponse>("/playlists/", { method: "GET" }),
   });
 
-  return { playLists, isLoading, isError };
+  return { playLists, isLoading, isError, isSuccess };
 }

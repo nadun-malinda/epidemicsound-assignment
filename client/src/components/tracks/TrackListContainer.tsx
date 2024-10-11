@@ -27,7 +27,7 @@ export function TrackListContainer({ children }: TrackListContainerProps) {
   }
 
   if (isError) {
-    return <p>Error while fetching playlists!</p>;
+    return <p>Error while fetching tracks!</p>;
   }
 
   return <TrackList tracks={tracks}>{children}</TrackList>;

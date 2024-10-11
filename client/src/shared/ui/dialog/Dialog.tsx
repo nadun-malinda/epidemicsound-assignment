@@ -24,7 +24,7 @@ export function Dialog({
         sx: {
           bgcolor: "#121212",
           color: "#ffffff",
-          border: "1px solid #333",
+          border: "1px solid var(--secondary-color)",
         },
       }}
       {...props}
@@ -34,7 +34,7 @@ export function Dialog({
           sx={{
             m: 0,
             p: 2,
-            borderBottom: "1px solid #333",
+            borderBottom: "1px solid var(--secondary-color)",
             fontWeight: 600,
             fontSize: "1.5rem",
           }}

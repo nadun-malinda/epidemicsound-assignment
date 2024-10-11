@@ -16,7 +16,7 @@
 
 .menu li a {
   display: block;
-  color: #767676;
+  color: var(--primary-color);
   text-decoration: none;
   font-size: 1.25rem;
   padding: 0.5rem 0;
@@ -24,5 +24,5 @@
 
 .menu li a.active {
   color: #fff;
-  border-bottom: 2px solid #009de0;
+  border-bottom: 2px solid var(--epidemic-blue);
 }

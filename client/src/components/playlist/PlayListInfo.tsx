@@ -8,6 +8,16 @@ interface PlayListInfoProps {
   playList: PlayList;
 }
 
+/**
+ * A component that displays information about a specific playlist.
+ *
+ * This component includes the playlist's cover image, title,
+ * description, number of tracks, creation date, and actions
+ * for managing the playlist.
+ *
+ * @param {PlayListInfoProps} props - The properties for the component.
+ * @returns {JSX.Element} The PlayListInfo component.
+ */
 export function PlayListInfo({ playList }: PlayListInfoProps) {
   return (
     <div className={styles.playListInfoBox}>
@@ -21,7 +31,7 @@ export function PlayListInfo({ playList }: PlayListInfoProps) {
           <p>{pluralize(playList?.tracks.length, "track")}</p>
           <p>
             {playList?.created_at &&
-              new Date(playList?.created_at).toLocaleString()}
+              new Date(playList.created_at).toLocaleString()}
           </p>
         </div>
       </div>

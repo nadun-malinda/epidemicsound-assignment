@@ -1,18 +1,31 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { IconButton } from "../../shared/ui";
 import { type Track } from "../../shared/data/tracks/schema";
 import { TrackAddToPlayListDialog } from "./TrackAddToPlayListDialog";
 import { TrackListContainer } from "./TrackListContainer";
 
+/**
+ * TracksPage component displays a list of tracks with options to add tracks to playlists.
+ *
+ * The component manages the state of the selected track and the visibility of the add to playlist dialog.
+ */
 export function TracksPage() {
-  const [selectedTrack, setSelectedTrack] = useState<Track>();
+  const [selectedTrack, setSelectedTrack] = useState<Track | undefined>(
+    undefined
+  );
   const [isOpenAddToPlayListDialog, setIsOpenAddToPlayListDialog] =
     useState(false);
 
-  const handleAddToPlayList = (track: Track) => {
+  /**
+   * Handles adding a track to a playlist by updating the selectedTrack state
+   * and opening the add to playlist dialog.
+   *
+   * @param {Track} track - The track to add to a playlist.
+   */
+  const handleAddToPlayList = useCallback((track: Track) => {
     setSelectedTrack(track);
     setIsOpenAddToPlayListDialog(true);
-  };
+  }, []);
 
   return (
     <>
@@ -21,7 +34,7 @@ export function TracksPage() {
           <IconButton
             size="large"
             icon="playListAdd"
-            onClick={() => handleAddToPlayList(track)}
+            onClick={() => handleAddToPlayList(track)} // Open dialog for adding track to playlist
           />
         )}
       </TrackListContainer>
@@ -30,7 +43,7 @@ export function TracksPage() {
         <TrackAddToPlayListDialog
           trackId={selectedTrack.id}
           open={isOpenAddToPlayListDialog}
-          onClose={() => setIsOpenAddToPlayListDialog(false)}
+          onClose={() => setIsOpenAddToPlayListDialog(false)} // Close dialog
         />
       )}
     </>

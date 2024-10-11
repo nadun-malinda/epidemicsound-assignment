@@ -6,23 +6,37 @@ import { useNavigate } from "react-router-dom";
 import styles from "./PlayListActions.module.css";
 
 interface PlayListActionsProps {
-  playList: PlayList;
+  playList: PlayList; // The playlist object to perform actions on
 }
 
+/**
+ * A component that handles actions for a playlist, such as deleting it.
+ *
+ * This component renders a button for deleting the playlist and
+ * manages the dialog that confirms the deletion action. Upon
+ * successful deletion, it navigates back to the playlists overview.
+ *
+ * @param {PlayListActionsProps} props - The properties for the component.
+ * @returns {JSX.Element} The PlayListActions component.
+ */
 export function PlayListActions({ playList }: PlayListActionsProps) {
   const navigate = useNavigate();
   const [openPlayListDeleteDialog, setOpenPlayListDeleteDialog] =
     useState(false);
 
+  /**
+   * Handles the action to delete the playlist by opening the confirmation dialog.
+   */
   const handleDelete = () => {
     setOpenPlayListDeleteDialog(true);
   };
 
+  /**
+   * Callback function that is executed upon successful deletion of the playlist.
+   */
   const handleOnDeleteSuccess = () => {
     setOpenPlayListDeleteDialog(false);
-    setTimeout(() => {
-      navigate("/playlists");
-    }, 1000);
+    navigate("/playlists");
   };
 
   return (

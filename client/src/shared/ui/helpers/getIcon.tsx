@@ -1,60 +1,47 @@
-import PlusOneIcon from "@mui/icons-material/PlusOne";
+import { ReactElement } from "react";
 import AddIcon from "@mui/icons-material/Add";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import CloseIcon from "@mui/icons-material/Close";
+import PlusOneIcon from "@mui/icons-material/PlusOne";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import PlaylistAddCheckOutlinedIcon from "@mui/icons-material/PlaylistAddCheckOutlined";
-import PlaylistRemoveOutlinedIcon from "@mui/icons-material/PlaylistRemoveOutlined";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import PlaylistPlayOutlinedIcon from "@mui/icons-material/PlaylistPlayOutlined";
-import CloseIcon from "@mui/icons-material/Close";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import PlaylistRemoveOutlinedIcon from "@mui/icons-material/PlaylistRemoveOutlined";
+import PlaylistAddCheckOutlinedIcon from "@mui/icons-material/PlaylistAddCheckOutlined";
 
 export type Icon =
-  | "delete"
   | "add"
+  | "edit"
+  | "back"
   | "close"
+  | "delete"
   | "playListAdd"
   | "playListPlay"
-  | "playListAddCheck"
-  | "playListRemove"
   | "arrowForward"
-  | "edit"
-  | "back";
+  | "playListRemove"
+  | "playListAddCheck";
 
-export function getIcon(icon: Icon) {
-  switch (icon) {
-    case "delete":
-      return <DeleteOutlineOutlinedIcon />;
+/**
+ * Returns a Material UI icon component based on the icon string provided.
+ *
+ * @param {Icon} icon - The name of the icon to retrieve.
+ * @returns {ReactElement} The corresponding Material UI icon component.
+ */
+export function getIcon(icon: Icon): ReactElement {
+  const iconMap: Record<Icon, ReactElement> = {
+    add: <AddIcon />,
+    close: <CloseIcon />,
+    edit: <EditOutlinedIcon />,
+    back: <ArrowBackIosIcon />,
+    playListAdd: <PlaylistAddIcon />,
+    delete: <DeleteOutlineOutlinedIcon />,
+    playListPlay: <PlaylistPlayOutlinedIcon />,
+    arrowForward: <ArrowForwardOutlinedIcon />,
+    playListRemove: <PlaylistRemoveOutlinedIcon />,
+    playListAddCheck: <PlaylistAddCheckOutlinedIcon />,
+  };
 
-    case "add":
-      return <AddIcon />;
-
-    case "close":
-      return <CloseIcon />;
-
-    case "playListAdd":
-      return <PlaylistAddIcon />;
-
-    case "playListPlay":
-      return <PlaylistPlayOutlinedIcon />;
-
-    case "playListAddCheck":
-      return <PlaylistAddCheckOutlinedIcon />;
-
-    case "playListRemove":
-      return <PlaylistRemoveOutlinedIcon />;
-
-    case "arrowForward":
-      return <ArrowForwardOutlinedIcon />;
-
-    case "edit":
-      return <EditOutlinedIcon />;
-
-    case "back":
-      return <ArrowBackIosIcon />;
-
-    default:
-      return <PlusOneIcon />;
-  }
+  return iconMap[icon] || <PlusOneIcon />;
 }

@@ -6,7 +6,7 @@ interface AudioPlayerProps {
   track: Track;
 }
 
-function AudioPlayer({ track }: AudioPlayerProps) {
+export function AudioPlayer({ track }: AudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -117,5 +117,3 @@ function AudioPlayer({ track }: AudioPlayerProps) {
     </>
   );
 }
-
-export default AudioPlayer;

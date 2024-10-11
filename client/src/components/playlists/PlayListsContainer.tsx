@@ -1,6 +1,6 @@
-import { PlayLists } from "./list";
+import { PlayLists } from "./PlayLists";
 import { type PlayList } from "../../shared/data/playlists/schema";
-import { usePlayListsQuery } from "../../shared/data/playlists/usePlayListsQuery";
+import { usePlayListsQuery } from "../../shared/data/playlists";
 
 interface PlayListsContainerProps {
   children?: (playList: PlayList) => React.ReactNode;

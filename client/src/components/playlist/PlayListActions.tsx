@@ -42,7 +42,12 @@ export function PlayListActions({ playList }: PlayListActionsProps) {
   return (
     <>
       <div className={styles.action}>
-        <Button size="small" variant="outlined" onClick={handleDelete}>
+        <Button
+          size="small"
+          variant="outlined"
+          onClick={handleDelete}
+          data-testid="delete-dialog-trigger"
+        >
           Delete
         </Button>
       </div>

@@ -5,6 +5,7 @@ import { PlayListTracks } from "./PlayListTracks";
 import { PlayListInfo } from "./PlayListInfo";
 import styles from "./PlayList.module.css";
 import { usePlayListByIdQuery } from "../../shared/data/playlists";
+import { PlayListActions } from "./PlayListActions";
 
 /**
  * A component that represents a single playlist.
@@ -36,7 +37,10 @@ export function PlayList() {
       <div className={styles.playList}>
         <Grid container spacing={6}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <PlayListInfo playList={playList} />
+            <div className={styles.playListSticky}>
+              <PlayListInfo playList={playList} />
+              <PlayListActions playList={playList} />
+            </div>
           </Grid>
           <Grid size={{ xs: 12, md: 8 }}>
             <div className={styles.trackContainer}>

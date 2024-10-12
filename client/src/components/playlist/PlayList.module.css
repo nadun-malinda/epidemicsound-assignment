@@ -2,6 +2,13 @@
   margin: 2rem 0;
 }
 
+.playListSticky {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 1rem;
+}
+
 .title {
   font-size: 1.75rem;
   font-weight: bold;

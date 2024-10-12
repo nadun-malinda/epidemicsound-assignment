@@ -129,6 +129,7 @@ function DialogContent({
           variant="text"
           onClick={handleDeletePlayList}
           loading={isLoading}
+          data-testid="delete-confirm"
         >
           Delete
         </Button>

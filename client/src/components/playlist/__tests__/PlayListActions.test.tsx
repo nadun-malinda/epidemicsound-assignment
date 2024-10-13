@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { PlayListActions } from "../PlayListActions";
 import { PlayListDeleteDialog } from "../PlayListDeleteDialog";
-import { mockPlayList } from "../../../tests/mocks/playlist";
+import { mockPlayList } from "../../../../tests/mocks/playlist";
 
 // Mock the PlayListDeleteDialog component
 jest.mock("../PlayListDeleteDialog", () => ({

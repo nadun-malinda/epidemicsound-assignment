@@ -2,7 +2,7 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { usePlayListsQuery } from "../usePlayListsQuery";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { fetchHttp } from "../../../utils/http";
-import { mockConsoleError } from "../../../../tests/utils";
+import { mockConsoleError } from "../../../../../tests/utils";
 
 const playLists = [
   {

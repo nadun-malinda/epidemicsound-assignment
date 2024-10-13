@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { PlayListDeleteDialog } from "../PlayListDeleteDialog";
 import { useDeletePlayListMutation } from "../../../shared/data/playlists";
-import { mockPlayList } from "../../../tests/mocks/playlist";
+import { mockPlayList } from "../../../../tests/mocks/playlist";
 
 // Mock the useDeletePlayListMutation hook
 jest.mock("../../../shared/data/playlists", () => ({

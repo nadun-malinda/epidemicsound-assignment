@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { PlayListInfo } from "../PlayListInfo";
-import { mockPlayList } from "../../../tests/mocks/playlist";
+import { mockPlayList } from "../../../../tests/mocks/playlist";
 
 describe("PlayListInfo Component", () => {
   test("Should display the playlist's title, description, track count, and created date", () => {

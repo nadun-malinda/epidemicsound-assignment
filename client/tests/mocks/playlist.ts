@@ -1,4 +1,4 @@
-import { type PlayList } from "../../shared/data/playlists/schema";
+import { type PlayList } from "../../src/shared/data/playlists/schema";
 
 export const mockPlayList: PlayList = {
   id: 1,

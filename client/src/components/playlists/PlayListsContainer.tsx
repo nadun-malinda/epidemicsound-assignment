@@ -1,6 +1,7 @@
 import { PlayLists } from "./PlayLists";
 import { type PlayList } from "../../shared/data/playlists/schema";
 import { usePlayListsQuery } from "../../shared/data/playlists";
+import styles from "./PlayListsContainer.module.css";
 
 interface PlayListsContainerProps {
   children?: (playList: PlayList) => React.ReactNode;
@@ -23,12 +24,20 @@ export function PlayListsContainer({ children }: PlayListsContainerProps) {
   const { playLists, isLoading, isError } = usePlayListsQuery();
 
   if (isLoading) {
-    return <p>Loading playlists...</p>;
+    return <MessageWrapper>Loading playlists...</MessageWrapper>;
   }
 
   if (isError) {
-    return <p>Error while fetching playlists!</p>;
+    return <MessageWrapper>Error while fetching playlists!</MessageWrapper>;
+  }
+
+  if (playLists?.length === 0) {
+    return <MessageWrapper>No playlists!</MessageWrapper>;
   }
 
   return <PlayLists playLists={playLists}>{children}</PlayLists>;
+}
+
+function MessageWrapper({ children }: { children: string }) {
+  return <p className={styles.message}>{children}</p>;
 }

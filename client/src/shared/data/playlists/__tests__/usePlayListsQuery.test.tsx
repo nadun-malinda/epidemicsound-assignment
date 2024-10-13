@@ -1,7 +1,7 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { usePlayListsQuery } from "../usePlayListsQuery";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { fetchHttp } from "../../../utils/http";
+import { fetchHttp } from "@/shared/utils/http";
 import { mockConsoleError } from "../../../../../tests/utils";
 
 const playLists = [
@@ -33,7 +33,7 @@ const playLists = [
   },
 ];
 
-jest.mock("../../../utils/http", () => ({
+jest.mock("@/shared/utils/http", () => ({
   fetchHttp: jest.fn(),
 }));
 

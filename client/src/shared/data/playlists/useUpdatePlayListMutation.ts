@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "react-query";
-import { fetchHttp } from "../../utils/http";
 import type { PlayList } from "./schema";
-import { playListKeys, trackKeys } from "../../../shared/utils/query";
+import { fetchHttp } from "@/shared/utils/http";
+import { playListKeys, trackKeys } from "@/shared/utils/query";
 
 type Mutate = Partial<Omit<PlayList, "tracks">> & {
   id: PlayList["id"];

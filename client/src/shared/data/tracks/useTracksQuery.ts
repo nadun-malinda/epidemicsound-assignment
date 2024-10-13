@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
-import { fetchHttp } from "../../utils/http";
+import { fetchHttp } from "@/shared/utils/http";
 import { type TracksResponse } from "./schema";
-import { trackKeys } from "../../../shared/utils/query";
+import { trackKeys } from "@/shared/utils/query";
 
 /**
  * Custom hook to fetch all tracks.

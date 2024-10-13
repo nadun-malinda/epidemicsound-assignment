@@ -19,5 +19,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "./typings.d.t"]
+  "include": ["src", "tests", "./typings.d.t"]
 }

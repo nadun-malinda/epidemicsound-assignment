@@ -1,6 +1,6 @@
-import { PlayList } from "../../shared/data/playlists/schema";
-import { Button, Dialog, Snackbar } from "../../shared/ui";
-import { useDeletePlayListMutation } from "../../shared/data/playlists";
+import { PlayList } from "@/shared/data/playlists/schema";
+import { Button, Dialog, Snackbar } from "@/shared/ui";
+import { useDeletePlayListMutation } from "@/shared/data/playlists";
 import styles from "./PlayListDeleteDialog.module.css";
 import { useEffect, useState } from "react";
 

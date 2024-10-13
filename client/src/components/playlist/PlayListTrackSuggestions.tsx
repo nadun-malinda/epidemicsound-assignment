@@ -1,10 +1,10 @@
-import { IconButton, Snackbar } from "../../shared/ui";
 import { TrackList } from "../tracks/TrackList";
-import { type Track } from "../../shared/data/tracks/schema";
-import { useUpdatePlayListMutation } from "../../shared/data/playlists";
+import { IconButton, Snackbar } from "@/shared/ui";
+import { type Track } from "@/shared/data/tracks/schema";
+import { type PlayList } from "@/shared/data/playlists/schema";
+import { useTrackSuggestionsQuery } from "@/shared/data/tracks";
+import { useUpdatePlayListMutation } from "@/shared/data/playlists";
 import styles from "./PlayList.module.css";
-import { type PlayList } from "../../shared/data/playlists/schema";
-import { useTrackSuggestionsQuery } from "../../shared/data/tracks";
 
 interface PlayListTrackSuggestionsProps {
   playList: PlayList;

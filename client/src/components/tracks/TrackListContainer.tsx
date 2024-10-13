@@ -1,6 +1,6 @@
 import { TrackList } from "./TrackList";
-import { type Track } from "../../shared/data/tracks/schema";
-import { useTracksQuery } from "../../shared/data/tracks";
+import { useTracksQuery } from "@/shared/data/tracks";
+import { type Track } from "@/shared/data/tracks/schema";
 
 interface TrackListContainerProps {
   children?: (track: Track) => React.ReactNode;

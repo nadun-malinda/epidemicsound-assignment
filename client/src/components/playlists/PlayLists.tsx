@@ -1,5 +1,5 @@
-import { type PlayList } from "../../shared/data/playlists/schema";
 import { PlayListRow } from "./PlayListRow";
+import { type PlayList } from "@/shared/data/playlists/schema";
 import styles from "./PlayLists.module.css";
 
 interface PlayListsProps {

@@ -1,7 +1,7 @@
 import React from "react";
-import { type PlayList as PlayListType } from "../../shared/data/playlists/schema";
+import { pluralize } from "@/shared/utils/text";
+import { type PlayList as PlayListType } from "@/shared/data/playlists/schema";
 import styles from "./PlayListRow.module.css";
-import { pluralize } from "../../shared/utils/text";
 
 interface PlayListProps {
   playList: PlayListType;

@@ -1,8 +1,8 @@
-import { Input, Button, Dialog, Snackbar } from "../../shared/ui";
-import { useCreatePlayListMutation } from "../../shared/data/playlists";
-import styles from "./PlayListCreateDialog.module.css";
 import { useEffect, useState } from "react";
-import { PlayList } from "../../shared/data/playlists/schema";
+import { Input, Button, Dialog, Snackbar } from "@/shared/ui";
+import { useCreatePlayListMutation } from "@/shared/data/playlists";
+import { PlayList } from "@/shared/data/playlists/schema";
+import styles from "./PlayListCreateDialog.module.css";
 
 /**
  * Props for PlayListCreateDialog component.

@@ -1,6 +1,6 @@
+import { Track } from "@/shared/data/tracks/schema";
+import { formatSecondsToHMS } from "@/shared/utils/date";
 import styles from "./TrackRow.module.css";
-import { Track } from "../../shared/data/tracks/schema";
-import { formatSecondsToHMS } from "../../shared/utils/date";
 
 interface TrackRowProps {
   track: Track;

@@ -21,7 +21,7 @@ describe("NavBar", () => {
     expect(playlistsLink).toBeInTheDocument();
   });
 
-  test("NavLink has active class when Track route is active", () => {
+  test("NavLink has active class when Track route is active", async () => {
     render(
       <BrowserRouter>
         <NavBar />
@@ -29,7 +29,7 @@ describe("NavBar", () => {
     );
 
     const tracksLink = screen.getByRole("link", { name: /tracks/i });
-    expect(tracksLink).toHaveClass("active");
+    await expect(tracksLink).toHaveClass("active");
   });
 
   test("NavLink has active class when Track route is inactive", async () => {

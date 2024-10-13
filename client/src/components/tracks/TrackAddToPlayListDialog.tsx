@@ -1,8 +1,8 @@
 import { PlayListsContainer } from "../playlists/PlayListsContainer";
-import { IconButton, Dialog, Snackbar } from "../../shared/ui";
-import { type Track } from "../../shared/data/tracks/schema";
-import { type PlayList } from "../../shared/data/playlists/schema";
-import { useUpdatePlayListMutation } from "../../shared/data/playlists";
+import { IconButton, Dialog, Snackbar } from "@/shared/ui";
+import { type Track } from "@/shared/data/tracks/schema";
+import { type PlayList } from "@/shared/data/playlists/schema";
+import { useUpdatePlayListMutation } from "@/shared/data/playlists";
 
 interface TrackAddToPlayListDialogProps {
   /**

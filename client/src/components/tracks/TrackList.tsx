@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TrackRow from "./TrackRow";
-import { AudioPlayer } from "../audio-player";
-import { type Track } from "../../shared/data/tracks/schema";
+import { AudioPlayer } from "@/components/audio-player";
+import { type Track } from "@/shared/data/tracks/schema";
 
 interface TrackListProps {
   /**

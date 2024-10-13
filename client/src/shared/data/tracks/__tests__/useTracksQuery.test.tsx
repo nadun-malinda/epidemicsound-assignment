@@ -1,7 +1,7 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { useTracksQuery } from "../useTracksQuery";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { fetchHttp } from "../../../utils/http";
+import { fetchHttp } from "@/shared/utils/http";
 
 const tracks = [
   {
@@ -40,7 +40,7 @@ const tracks = [
   },
 ];
 
-jest.mock("../../../utils/http", () => ({
+jest.mock("@/shared/utils/http", () => ({
   fetchHttp: jest.fn(),
 }));
 

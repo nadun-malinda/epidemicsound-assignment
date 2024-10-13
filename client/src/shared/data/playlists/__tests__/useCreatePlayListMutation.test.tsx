@@ -1,11 +1,11 @@
 import { act, renderHook, waitFor } from "@testing-library/react";
 import { useCreatePlayListMutation } from "../useCreatePlayListMutation";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { fetchHttp } from "../../../utils/http";
+import { fetchHttp } from "@/shared/utils/http";
 import { mockConsoleError } from "../../../../../tests/utils";
 
 // Mock the fetchHttp function
-jest.mock("../../../utils/http", () => ({
+jest.mock("@/shared/utils/http", () => ({
   fetchHttp: jest.fn(),
 }));
 

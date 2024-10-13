@@ -1,8 +1,8 @@
 import { useState, useCallback } from "react";
-import { IconButton } from "../../shared/ui";
-import { type Track } from "../../shared/data/tracks/schema";
-import { TrackAddToPlayListDialog } from "./TrackAddToPlayListDialog";
+import { IconButton } from "@/shared/ui";
+import { type Track } from "@/shared/data/tracks/schema";
 import { TrackListContainer } from "./TrackListContainer";
+import { TrackAddToPlayListDialog } from "./TrackAddToPlayListDialog";
 
 /**
  * TracksPage component displays a list of tracks with options to add tracks to playlists.

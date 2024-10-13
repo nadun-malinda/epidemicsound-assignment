@@ -1,7 +1,7 @@
-import emptyPlayList from "../../assets/playlist-empty.png";
+import emptyPlayList from "@/assets/playlist-empty.png";
 import styles from "./PlayListInfo.module.css";
-import { pluralize } from "../../shared/utils/text";
-import { type PlayList } from "../../shared/data/playlists/schema";
+import { pluralize } from "@/shared/utils/text";
+import { type PlayList } from "@/shared/data/playlists/schema";
 
 interface PlayListInfoProps {
   playList: PlayList;

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button } from "../../shared/ui";
+import { Button } from "@/shared/ui";
 import { PlayListDeleteDialog } from "./PlayListDeleteDialog";
-import { type PlayList } from "../../shared/data/playlists/schema";
+import { type PlayList } from "@/shared/data/playlists/schema";
 import { useNavigate } from "react-router-dom";
 import styles from "./PlayListActions.module.css";
 

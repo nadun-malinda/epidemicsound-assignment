@@ -20,12 +20,12 @@ describe("PlayListInfo Component", () => {
     expect(screen.getByText(formattedDate)).toBeInTheDocument();
   });
 
-  test("Should render an empty playlist image", () => {
+  test("Should render an empty playlist image", async () => {
     render(<PlayListInfo playList={mockPlayList} />);
 
     const img = screen.getByRole("img", { name: /Empty playlist/i });
     expect(img).toBeInTheDocument();
-    expect(img).toHaveAttribute(
+    await expect(img).toHaveAttribute(
       "src",
       expect.stringContaining("playlist-empty.png")
     );

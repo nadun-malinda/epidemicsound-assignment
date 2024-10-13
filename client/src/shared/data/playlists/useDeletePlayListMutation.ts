@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "react-query";
 import { type PlayList } from "./schema";
-import { fetchHttp } from "../../../shared/utils/http";
-import { playListKeys } from "../../../shared/utils/query";
+import { fetchHttp } from "@/shared/utils/http";
+import { playListKeys } from "@/shared/utils/query";
 
 /**
  * Custom hook to delete a playlist by its ID.

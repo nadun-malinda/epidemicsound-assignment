@@ -1,6 +1,6 @@
 import { PlayLists } from "./PlayLists";
-import { type PlayList } from "../../shared/data/playlists/schema";
-import { usePlayListsQuery } from "../../shared/data/playlists";
+import { usePlayListsQuery } from "@/shared/data/playlists";
+import { type PlayList } from "@/shared/data/playlists/schema";
 import styles from "./PlayListsContainer.module.css";
 
 interface PlayListsContainerProps {

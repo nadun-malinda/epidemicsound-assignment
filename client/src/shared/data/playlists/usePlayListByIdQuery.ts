@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
-import { fetchHttp } from "../../../shared/utils/http";
 import type { PlayList } from "./schema";
-import { playListKeys } from "../../../shared/utils/query";
+import { fetchHttp } from "@/shared/utils/http";
+import { playListKeys } from "@/shared/utils/query";
 
 /**
  * Custom hook to fetch a playlist by its ID.

@@ -22,9 +22,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject",
-    "test:e2e": "playwright test",
-    "test:e2e:debug": "playwright test --debug"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +44,6 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
-    "@playwright/test": "^1.48.0",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",

@@ -28,10 +28,11 @@ export function TracksPage() {
   }, []);
 
   return (
-    <>
+    <div data-testid="tracks-page">
       <TrackListContainer>
         {(track) => (
           <IconButton
+            data-testid="add-to-playlist-trigger"
             size="large"
             icon="playListAdd"
             onClick={() => handleAddToPlayList(track)} // Open dialog for adding track to playlist
@@ -46,6 +47,6 @@ export function TracksPage() {
           onClose={() => setIsOpenAddToPlayListDialog(false)} // Close dialog
         />
       )}
-    </>
+    </div>
   );
 }

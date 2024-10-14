@@ -24,7 +24,7 @@ interface PlayListsProps {
 
 export function PlayLists({ playLists, children }: PlayListsProps) {
   return (
-    <div className={styles.playLists}>
+    <div className={styles.playLists} test-dataid="playlists">
       {playLists?.map((playList) => (
         <PlayListRow key={playList.id} playList={playList}>
           {children && children(playList)}

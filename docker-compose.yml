@@ -36,3 +36,15 @@ services:
       - "3000:3000"
     depends_on:
       - service
+
+  playwright:
+    image: mcr.microsoft.com/playwright:v1.48.0-noble
+    working_dir: /code
+    volumes:
+      - ./client/:/code/
+    entrypoint:
+      ["npx", "playwright", "test", "--ui-host=0.0.0.0", "--ui-port=8080"]
+    ports:
+      - "8080:8080"
+    depends_on:
+      - client

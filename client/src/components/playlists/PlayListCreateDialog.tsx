@@ -60,7 +60,7 @@ export function PlayListCreateDialog({
   };
 
   return (
-    <>
+    <div data-testid="playlist-create-dialog">
       <Dialog
         open={open}
         onClose={onClose}
@@ -75,7 +75,7 @@ export function PlayListCreateDialog({
       />
       <Snackbar open={isSuccess} message="Playlist created successfully!" />
       <Snackbar open={isError} message="Failed to create playlist!" />
-    </>
+    </div>
   );
 }
 

@@ -54,13 +54,14 @@ export function TrackAddToPlayListDialog({
   };
 
   return (
-    <>
+    <div data-testid="add-to-playlist-dialog">
       <Dialog
         title="Add to playlists"
         content={
           <PlayListsContainer>
             {(playList) => (
               <IconButton
+                data-testid="add-to-playlist-button"
                 icon="playListAdd"
                 onClick={() => handleOnTrackAddToPlayList(playList)}
               />
@@ -70,8 +71,16 @@ export function TrackAddToPlayListDialog({
         open={open}
         onClose={onClose}
       />
-      <Snackbar open={isSuccess} message="Added to playlist successfully!" />
-      <Snackbar open={isError} message="Failed to add to playlist!" />
-    </>
+      <Snackbar
+        data-tetid="snackbar-playlist-added-success"
+        open={isSuccess}
+        message="Added to playlist successfully!"
+      />
+      <Snackbar
+        data-tetid="snackbar-playlist-addess-failed"
+        open={isError}
+        message="Failed to add to playlist!"
+      />
+    </div>
   );
 }

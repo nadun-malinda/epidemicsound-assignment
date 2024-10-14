@@ -39,7 +39,7 @@ export function TrackList({ tracks, children }: TrackListProps) {
   };
 
   return (
-    <>
+    <div data-testid="tracklist">
       {tracks?.map((track) => (
         <TrackRow key={track.id} track={track} handlePlay={handlePlay}>
           {/* Render children if provided */}
@@ -49,6 +49,6 @@ export function TrackList({ tracks, children }: TrackListProps) {
 
       {/* Render the AudioPlayer only if a track is selected */}
       {currentTrack && <AudioPlayer track={currentTrack} />}
-    </>
+    </div>
   );
 }

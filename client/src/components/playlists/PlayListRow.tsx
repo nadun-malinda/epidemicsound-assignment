@@ -25,7 +25,7 @@ interface PlayListProps {
 
 export function PlayListRow({ playList, children }: PlayListProps) {
   return (
-    <div className={styles.playListRow}>
+    <div className={styles.playListRow} data-testid="playlist-row">
       <div className={styles.playListInfo}>
         <p className={styles.playListTitle}>{playList.name}</p>
         <p className={styles.playListTracks}>

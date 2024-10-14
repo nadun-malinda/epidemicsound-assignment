@@ -10,7 +10,7 @@ interface TrackRowProps {
 
 function TrackRow({ track, handlePlay, children }: TrackRowProps) {
   return (
-    <div className={styles.trackRow}>
+    <div className={styles.trackRow} data-testid="track-row">
       <button className={styles.trackPlay} onClick={() => handlePlay(track)}>
         <svg
           width="24"

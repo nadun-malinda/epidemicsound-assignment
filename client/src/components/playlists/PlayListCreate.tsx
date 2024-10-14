@@ -14,7 +14,11 @@ export function PlayListCreate() {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)} startIcon="add">
+      <Button
+        data-testid="playlist-create-button"
+        onClick={() => setOpen(true)}
+        startIcon="add"
+      >
         New playlist
       </Button>
 

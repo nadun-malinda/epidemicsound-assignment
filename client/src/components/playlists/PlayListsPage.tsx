@@ -13,7 +13,7 @@ import { PlayListsContainer } from "./PlayListsContainer";
  */
 export function PlayListsPage() {
   return (
-    <>
+    <div data-testid="playlists-page">
       <PlayListCreate />
 
       <PlayListsContainer>
@@ -24,6 +24,6 @@ export function PlayListsPage() {
           />
         )}
       </PlayListsContainer>
-    </>
+    </div>
   );
 }

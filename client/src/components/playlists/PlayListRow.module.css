@@ -1,0 +1,40 @@
+.playListRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: all 250ms;
+  position: relative;
+}
+
+.playListRow:last-child {
+  border-bottom: none;
+}
+
+.playListLink {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.playListInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.playListTitle {
+  font-weight: 600;
+  margin: 0;
+}
+
+.playListTracks {
+  color: var(--primary-color);
+  margin: 0;
+}

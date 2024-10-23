@@ -1,0 +1,30 @@
+.playList {
+  margin: 2rem 0;
+}
+
+.playListSticky {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 1rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.playListMeta,
+.playListMeta p {
+  font-weight: 400;
+  margin: 12px 0;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+
+.trackContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

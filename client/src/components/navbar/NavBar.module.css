@@ -1,0 +1,28 @@
+.logo {
+  width: 2rem;
+  height: auto;
+}
+
+.menu {
+  display: flex;
+  margin: 2rem 0 3rem;
+  padding: 0;
+}
+
+.menu li {
+  list-style: none;
+  margin-right: 2rem;
+}
+
+.menu li a {
+  display: block;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.25rem;
+  padding: 0.5rem 0;
+}
+
+.menu li a.active {
+  color: #fff;
+  border-bottom: 2px solid var(--epidemic-blue);
+}

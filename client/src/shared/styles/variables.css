@@ -1,0 +1,8 @@
+:root {
+  --primary-color: #767676;
+  --secondary-color: #333;
+  --epidemic-blue: #009de0;
+
+  /* Media query breakpoints */
+  --mobile-breakpoint: 500px;
+}

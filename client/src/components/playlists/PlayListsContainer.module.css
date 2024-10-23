@@ -1,0 +1,3 @@
+.message {
+  composes: message from "../../shared/styles/typography.css";
+}

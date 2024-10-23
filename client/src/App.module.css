@@ -1,32 +1,12 @@
 .app {
-  padding: 4rem;
+  padding: 1rem;
+  margin: 0 auto 4rem auto;
 }
 
-.logo {
-  width: 2rem;
-  height: auto;
-}
-
-.menu {
-  display: flex;
-  margin: 2rem 0;
-  padding: 0;
-}
-
-.menu li {
-  list-style: none;
-  margin-right: 2rem;
-}
-
-.menu li a {
-  display: block;
-  color: #767676;
-  text-decoration: none;
-  font-size: 1.25rem;
-  padding: 0.5rem 0;
-}
-
-.menu li a.active {
-  color: #fff;
-  border-bottom: 2px solid #009de0;
+@media (min-width: 500px) {
+  .app {
+    padding: 4rem;
+    width: 80%;
+    max-width: 1000px;
+  }
 }
